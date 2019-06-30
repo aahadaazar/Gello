@@ -1,0 +1,25 @@
+$green-button-color: #45ce45;
+$blue-button-color: #3460d6;
+$toolbar-color: #a37ac7;
+
+.main-toolbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: $toolbar-color;
+    color: white;
+
+    .button-sec {
+        display: flex;
+        width: 150px;
+        justify-content: space-between;
+        color: white;
+
+        .login-button {
+            background-color: $green-button-color;
+        }
+
+        .signup-button {
+            background-color: $blue-button-color;
+        }
+    }
+}

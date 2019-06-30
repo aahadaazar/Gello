@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+
+@font-face {
+  font-family: YourFontFamily;
+  src: url("/assets/font/Quicksand-Regular.ttf") format("truetype");
+}
+
+html,
+body {
+  height: 100%;
+  background: #e6e6e6;
+  overflow: hidden;
+}
+body {
+  margin: 0;
+  font-family: YourFontFamily, "Helvetica Neue", sans-serif;
+}
