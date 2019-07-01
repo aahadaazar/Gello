@@ -1,5 +1,5 @@
-<mat-grid-list cols="2" rowHeight="2:2">
-  <mat-grid-tile class="grid-tile">
+<div class="section group">
+	<div class="col span_1_of_2">
     <mat-card class="signup-card">
 
       <div class="signup-div">
@@ -23,11 +23,11 @@
           [(ngModel)]="formData.userName"
           placeholder="Enter Your Username"
         />
-        <button mat-raised-button (click)="registerUser()" class="submit-button">
+        <button mat-raised-button disabled (click)="registerUser()" class="submit-button">
           Register!!
         </button>
       </div>
     </mat-card>
-  </mat-grid-tile>
-</mat-grid-list>
+	</div>
+</div>
 

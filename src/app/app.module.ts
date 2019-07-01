@@ -10,7 +10,8 @@ import {
   MatGridListModule,
   MatCardModule,
   MatSnackBarModule,
-  MatProgressSpinnerModule
+  MatProgressSpinnerModule,
+  MatInputModule
 } from "@angular/material";
 import { RouterModule, Routes } from "@angular/router";
 import { WelcomeComponent } from "./features/welcome/welcome.component";
@@ -20,6 +21,9 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { LoginComponent } from './features/authentication/login/login.component';
+import { HomepageComponent } from './features/components/homepage/homepage.component';
+import { AddblogComponent } from './features/components/addblog/addblog.component';
+import { EditblogComponent } from './features/components/editblog/editblog.component';
 
 
 const appRoutes: Routes = [
@@ -30,7 +34,7 @@ const appRoutes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, WelcomeComponent, SignupComponent, LoginComponent],
+  declarations: [AppComponent, WelcomeComponent, SignupComponent, LoginComponent, HomepageComponent, AddblogComponent, EditblogComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -38,6 +42,7 @@ const appRoutes: Routes = [
     MatToolbarModule,
     MatButtonModule,
     MatGridListModule,
+    MatInputModule,
     MatSnackBarModule,
     MatCardModule,
     MatProgressSpinnerModule,
