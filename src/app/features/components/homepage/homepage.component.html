@@ -1,5 +1,5 @@
 <div class="main-container">
-  <div class="blog-container animated fadeIn" *ngFor="let blog of blogArray">
+  <div class="blog-container animated fadeIn" *ngFor="let blog of blogArray" [routerLink]="['/edit', blog]">
     <mat-card class="example-card">
       <mat-card-header>
         <mat-card-title>
@@ -15,7 +15,12 @@
       </mat-card-content>
       <mat-card-actions>
         <button mat-button>LIKE</button>
+        <img *ngIf="blog.liked === 0" class="heart animated fadeIn" src="../../../../assets/unfilledheart.png">
+        <img *ngIf="blog.liked === 1" class="heart animated fadeIn" src="../../../../assets/filledheart.png">
       </mat-card-actions>
     </mat-card>
+  </div>
+  <div class="floatingicon" routerLink="/add">
+    <img src="../../../../assets/add.png" />
   </div>
 </div>

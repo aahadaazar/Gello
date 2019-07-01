@@ -1,3 +1,49 @@
-<p>
-  editblog works!
-</p>
+<div class="main-container animated zoomIn">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Edit Blog</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-form-field>
+          <input
+            [(ngModel)]="newBlog.name"
+            required
+            matInput
+            placeholder="Name of the Blog"
+            (keyup)="checkValidation($event)"
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            [(ngModel)]="newBlog.description"
+            required
+            matInput
+            placeholder="Short description of blog"
+            (keyup)="checkValidation($event)"
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <textarea
+            [(ngModel)]="newBlog.html"
+            (keyup)="checkValidation($event)"
+            required
+            rows="10"
+            cols="50"
+            matInput
+            placeholder="Write your blog!!!"
+          ></textarea>
+        </mat-form-field>
+      </mat-card-content>
+      <mat-card-actions>
+        <button
+          mat-stroked-button
+          color="accent"
+          [disabled]="notValidated"
+          (click)="saveBlog()"
+        >
+          Update Blog!
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+  
