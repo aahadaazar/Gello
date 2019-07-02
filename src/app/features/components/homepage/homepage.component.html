@@ -1,14 +1,11 @@
 <div class="main-container">
-  <div
-    class="blog-container animated fadeIn"
-    *ngFor="let blog of blogArray; let index = index"
-    [routerLink]="['/view', blog]"
-  >
+  <div class="blog-container animated fadeIn" *ngFor="let blog of blogArray; let index = index"
+    [routerLink]="['/view', blog]">
     <mat-card class="example-card">
       <mat-card-header>
         <mat-card-title>
-          <h3>{{ blog.owner }}</h3></mat-card-title
-        >
+          <h3>{{ blog.owner }}</h3>
+        </mat-card-title>
         <mat-card-title>{{ blog.name }}</mat-card-title>
         <mat-card-subtitle>{{ blog.description }}</mat-card-subtitle>
       </mat-card-header>

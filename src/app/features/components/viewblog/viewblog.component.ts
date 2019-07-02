@@ -7,12 +7,13 @@ import { ActivatedRoute } from "@angular/router";
   styleUrls: ['./viewblog.component.scss']
 })
 export class ViewblogComponent implements OnInit {
-
+  viewBlog: any;
   constructor(private _Activatedroute: ActivatedRoute) { }
 
   ngOnInit() {
     this._Activatedroute.paramMap.subscribe((params: any) => {
       console.log(params.params);
+      this.viewBlog = params.params;
     });
   }
 }

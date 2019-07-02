@@ -3,43 +3,24 @@
     <mat-card class="signup-card">
       <div class="signup-div">
         <mat-form-field>
-          <input
-            matInput
-            type="text"
-            [(ngModel)]="formData.userEmail"
-            placeholder="Enter Your Email"
-          />
+          <input matInput type="text" [(ngModel)]="formData.username" placeholder="Enter Your Email" />
         </mat-form-field>
         <mat-form-field>
-          <input
-            matInput
-            type="password"
-            [(ngModel)]="formData.userPasswordOne"
-            placeholder="Enter Your Password"
-          />
+          <input matInput type="password" [(ngModel)]="formData.password" placeholder="Enter Your Password" />
         </mat-form-field>
         <mat-form-field>
-          <input
-            matInput
-            type="password"
-            [(ngModel)]="formData.userPasswordTwo"
-            placeholder="Enter Your Password Again"
-          />
+          <input matInput type="password" [(ngModel)]="formData.confirmPassword"
+            placeholder="Enter Your Password Again" />
         </mat-form-field>
         <mat-form-field>
-          <input
-            matInput
-            type="text"
-            [(ngModel)]="formData.userName"
-            placeholder="Enter Your Username"
-          />
+          <input matInput type="text" [(ngModel)]="formData.firstname" placeholder="Enter Your Name" />
         </mat-form-field>
-        <button
-          mat-raised-button
-          (click)="registerUser()"
-          class="submit-button"
-        >
-          Register!!
+        <button mat-raised-button (click)="registerUser()" class="submit-button"
+          [style.padding]="loading ? '10px': '0'">
+          <span *ngIf="!loading">
+            Register!!
+          </span>
+          <mat-spinner color="accent" diameter="20" *ngIf="loading"></mat-spinner>
         </button>
       </div>
     </mat-card>

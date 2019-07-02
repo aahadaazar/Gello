@@ -1,0 +1,25 @@
+.main-container {
+  padding: 15px;
+
+  .mat-card-actions {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 50px;
+
+    textarea {
+      width: 100%;
+      border: 1px solid grey;
+      padding: 5px;
+    }
+
+    button {
+      width: 100px;
+      margin-top: 10px;
+
+      &:disabled {
+        pointer-events: none;
+        background: grey;
+      }
+    }
+  }
+}

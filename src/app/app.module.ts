@@ -22,6 +22,7 @@ import { HomepageComponent } from './features/components/homepage/homepage.compo
 import { AddblogComponent } from './features/components/addblog/addblog.component';
 import { EditblogComponent } from './features/components/editblog/editblog.component';
 import { ViewblogComponent } from './features/components/viewblog/viewblog.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 const appRoutes: Routes = [
@@ -40,6 +41,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     MatButtonModule,

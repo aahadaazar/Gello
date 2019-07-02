@@ -3,16 +3,17 @@
     <mat-card class="login-card">
       <div class="login-div">
         <mat-form-field>
-          <input matInput type="text" [(ngModel)]="formData.userName" placeholder="Enter Your Username" />
+          <input matInput type="text" [(ngModel)]="formData.username" placeholder="Enter Your Email" />
         </mat-form-field>
         <mat-form-field>
-          <input matInput type="password" [(ngModel)]="formData.userPassword" placeholder="Enter Your Password" />
+          <input matInput type="password" [(ngModel)]="formData.password" placeholder="Enter Your Password" />
         </mat-form-field>
 
-        <button mat-raised-button [disabled]="loading" (click)="loginUser()" class="submit-button">
-          <span>
+        <button mat-raised-button (click)="loginUser()" class="submit-button" [style.padding]="loading ? '10px': '0'">
+          <span *ngIf="!loading">
             Login!!
           </span>
+          <mat-spinner color="accent" diameter="20" *ngIf="loading"></mat-spinner>
         </button>
       </div>
     </mat-card>

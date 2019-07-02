@@ -6,7 +6,7 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./addblog.component.scss"]
 })
 export class AddblogComponent implements OnInit {
-  newBlog = {
+  newBlog: any = {
     name: "",
     description: "",
     html: ""
