@@ -6,10 +6,10 @@
     <mat-card-content>
       <mat-form-field>
         <input
-          [(ngModel)]="newBlog.name"
+          [(ngModel)]="newBlog.title"
           required
           matInput
-          placeholder="Name of the Blog"
+          placeholder="Blog Title"
           (keyup)="checkValidation($event)"
         />
       </mat-form-field>
