@@ -1,33 +1,48 @@
 <div class="section group">
-	<div class="col span_1_of_2">
+  <div class="col span_1_of_2">
     <mat-card class="signup-card">
-
       <div class="signup-div">
-        <input
-          type="text"
-          [(ngModel)]="formData.userEmail"
-          placeholder="Enter Your Email"
-        />
-        <input
-          type="password"
-          [(ngModel)]="formData.userPasswordOne"
-          placeholder="Enter Your Password"
-        />
-        <input
-          type="password"
-          [(ngModel)]="formData.userPasswordTwo"
-          placeholder="Enter Your Password Again"
-        />
-        <input
-          type="text"
-          [(ngModel)]="formData.userName"
-          placeholder="Enter Your Username"
-        />
-        <button mat-raised-button disabled (click)="registerUser()" class="submit-button">
+        <mat-form-field>
+          <input
+            matInput
+            type="text"
+            [(ngModel)]="formData.userEmail"
+            placeholder="Enter Your Email"
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            type="password"
+            [(ngModel)]="formData.userPasswordOne"
+            placeholder="Enter Your Password"
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            type="password"
+            [(ngModel)]="formData.userPasswordTwo"
+            placeholder="Enter Your Password Again"
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            type="text"
+            [(ngModel)]="formData.userName"
+            placeholder="Enter Your Username"
+          />
+        </mat-form-field>
+        <button
+          mat-raised-button
+          disabled
+          (click)="registerUser()"
+          class="submit-button"
+        >
           Register!!
         </button>
       </div>
     </mat-card>
-	</div>
+  </div>
 </div>
-
