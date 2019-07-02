@@ -1,5 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { log } from 'ng-zorro-antd';
 import { ActivatedRoute } from "@angular/router";
 
 @Component({
@@ -20,19 +19,19 @@ export class EditblogComponent implements OnInit {
     this._Activatedroute.paramMap.subscribe(params => {
       console.log(params);
       // this.editBlog = params;
-      console.log(params.params.name);
+      // console.log(params.params.name);
     });
   }
 
   saveBlog() {
     console.log("Hello World");
-    console.log(this.newBlog);
+    console.log(this.editBlog);
   }
   checkValidation(event) {
     if (
-      this.newBlog.name === "" ||
-      this.newBlog.description === "" ||
-      this.newBlog.html === ""
+      this.editBlog.name === "" ||
+      this.editBlog.description === "" ||
+      this.editBlog.html === ""
     ) {
       this.notValidated = true;
     } else {

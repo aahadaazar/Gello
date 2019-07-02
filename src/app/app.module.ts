@@ -17,9 +17,6 @@ import { RouterModule, Routes } from "@angular/router";
 import { WelcomeComponent } from "./features/welcome/welcome.component";
 import { SignupComponent } from "./features/authentication/signup/signup.component";
 import { FormsModule } from "@angular/forms";
-import { AngularFireModule } from '@angular/fire';
-import { environment } from '../environments/environment';
-import { AngularFireAuthModule } from '@angular/fire/auth';
 import { LoginComponent } from './features/authentication/login/login.component';
 import { HomepageComponent } from './features/components/homepage/homepage.component';
 import { AddblogComponent } from './features/components/addblog/addblog.component';
@@ -47,8 +44,6 @@ const appRoutes: Routes = [
     MatCardModule,
     MatProgressSpinnerModule,
     FormsModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAuthModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],
