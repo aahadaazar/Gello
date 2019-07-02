@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { MatSnackBar } from "@angular/material";
+import { Router } from '@angular/router';
+import { LoginService } from '../login/login.service';
 
 @Component({
   selector: "ge-signup",
@@ -8,10 +10,10 @@ import { MatSnackBar } from "@angular/material";
 })
 export class SignupComponent implements OnInit {
   formData = {
-    userEmail: "",
-    userPasswordOne: "",
-    userPasswordTwo: "",
-    userName: ""
+    username: "",
+    password: "",
+    confirmPassword: "",
+    firstname: ""
   };
 
   AlertType = {
@@ -20,7 +22,9 @@ export class SignupComponent implements OnInit {
   };
 
   formValidation: any;
-  constructor(private _snackBar: MatSnackBar) {}
+  loading = false;
+  constructor(private _snackBar: MatSnackBar, private loginService: LoginService,
+    private router: Router) { }
 
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action, {
@@ -28,22 +32,22 @@ export class SignupComponent implements OnInit {
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   registerUser() {
     this.formValidation = true;
     if (
-      this.formData.userEmail === "" ||
-      this.formData.userPasswordOne === "" ||
-      this.formData.userPasswordTwo === "" ||
-      this.formData.userName === ""
+      this.formData.username === "" ||
+      this.formData.password === "" ||
+      this.formData.confirmPassword === "" ||
+      this.formData.firstname === ""
     ) {
       this.openSnackBar("Form is empty!", "Close");
       return false;
     }
     if (
       /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(
-        this.formData.userEmail
+        this.formData.username
       )
     ) {
       this.formValidation = true;
@@ -54,7 +58,7 @@ export class SignupComponent implements OnInit {
       return false;
     }
 
-    if (this.formData.userPasswordOne !== this.formData.userPasswordTwo) {
+    if (this.formData.password !== this.formData.confirmPassword) {
       this.AlertType.message = "Passwords do not match !";
       this.openSnackBar(this.AlertType.message, "Close");
       this.formValidation = false;
@@ -63,9 +67,32 @@ export class SignupComponent implements OnInit {
       this.formValidation = true;
     }
     if (this.formValidation) {
-      this.AlertType.message = "You are ready to sign in!";
-      this.openSnackBar(this.AlertType.message, "Close");
       console.log(this.formData);
+      this.loading = true;
+      const data = {
+        username: this.formData.username.toLowerCase(),
+        password: this.formData.password,
+        firstname: this.formData.firstname
+      };
+      this.loginService.register(data).subscribe(res => {
+        // console.log(res.data);
+        this.loading = false;
+        this._snackBar.open('Registration successful!!', 'Close', {
+          duration: 2000,
+          horizontalPosition: 'right',
+          verticalPosition: 'top',
+        });
+        this.router.navigate(['/login']);
+      }, err => {
+        // console.log(err);
+        this.loading = false;
+        const message = 'Something went wrong';
+        this._snackBar.open(message, 'Close', {
+          duration: 2000,
+          horizontalPosition: 'right',
+          verticalPosition: 'top',
+        });
+      });
     } else {
       this.AlertType.message = "Fields need to be checked";
       this.openSnackBar(this.AlertType.message, "Close");

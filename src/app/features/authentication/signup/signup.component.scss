@@ -74,7 +74,9 @@
             color: white;
             width: 50%;
             align-self: center;
-
+            display: flex;
+            align-items: center;
+            justify-content: center;
             &:disabled {
                 pointer-events: none;
                 background: grey;

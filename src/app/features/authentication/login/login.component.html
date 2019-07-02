@@ -4,19 +4,19 @@
       <div class="login-div">
         <input
           type="text"
-          [(ngModel)]="formData.userName"
-          placeholder="Enter Your Username"
+          [(ngModel)]="formData.username"
+          placeholder="Enter your email"
         />
         <input
           type="password"
-          [(ngModel)]="formData.userPassword"
-          placeholder="Enter Your Password"
+          [(ngModel)]="formData.password"
+          placeholder="Enter your password"
         />
-        <button mat-raised-button (click)="loginUser()" class="submit-button">
+        <button mat-raised-button (click)="loginUser()" class="submit-button" [style.padding]="loading ? '10px': '0'">
           <span *ngIf="!loading">
             Login!!
           </span>
-          <mat-spinner *ngIf="loading"></mat-spinner>
+          <mat-spinner color="accent" diameter="20" *ngIf="loading"></mat-spinner>
         </button>
       </div>
     </mat-card>

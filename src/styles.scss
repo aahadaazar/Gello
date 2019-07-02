@@ -17,3 +17,9 @@ body {
   margin: 0;
   font-family: YourFontFamily, "Helvetica Neue", sans-serif;
 }
+
+.login-card, .signup-card {
+  .mat-progress-spinner.mat-accent circle, .mat-spinner.mat-accent circle {
+    stroke: #fff !important;
+  }
+}

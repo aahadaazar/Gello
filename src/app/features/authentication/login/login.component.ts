@@ -1,5 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { MatSnackBar, MatInput } from "@angular/material";
+import { Router } from '@angular/router';
+import { LoginService } from './login.service';
+import { HttpService } from '../../../services/http.service';
 
 @Component({
   selector: "ge-login",
@@ -8,8 +11,8 @@ import { MatSnackBar, MatInput } from "@angular/material";
 })
 export class LoginComponent implements OnInit {
   formData = {
-    userPassword: "",
-    userName: ""
+    password: "",
+    username: ""
   };
 
   AlertType = {
@@ -19,7 +22,8 @@ export class LoginComponent implements OnInit {
 
   formValidation: any;
   loading = false;
-  constructor(private _snackBar: MatSnackBar) {}
+  constructor(private _snackBar: MatSnackBar, private loginService: LoginService,
+    private router: Router, private httpService: HttpService) {}
 
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action, {
@@ -31,18 +35,38 @@ export class LoginComponent implements OnInit {
 
   loginUser() {
     this.formValidation = true;
-    if (this.formData.userName === "" || this.formData.userPassword === "") {
+    if (this.formData.username === "" || this.formData.password === "") {
       this.openSnackBar("Form is empty!", "Close");
       return false;
     }
     if (this.formValidation) {
-      this.AlertType.message = "You are ready to sign in!!";
-      this.openSnackBar(this.AlertType.message, "Close");
+      // this.AlertType.message = "You are ready to sign in!!";
+      // this.openSnackBar(this.AlertType.message, "Close");
       this.loading = true;
-      setTimeout(() => {
+      const data = {
+        username: this.formData.username.toLowerCase(),
+        password: this.formData.password
+      };
+      this.loginService.login(data).subscribe(res => {
+        // console.log(res.data);
+        this.httpService.setAuthenticatedUser(res.data.token, res.data.user);
         this.loading = false;
-      }, 5000);
-      console.log(this.formData);
+        this._snackBar.open('Login successful!!', 'Close', {
+          duration: 2000,
+          horizontalPosition: 'right',
+          verticalPosition: 'top',
+        });
+        this.router.navigate(['/hello']);
+      }, err => {
+        // console.log(err);
+        this.loading = false;
+        const message = err.err && err.err.name === 'IncorrectUsernameError' ? err.err.message : 'Something went wrong';
+        this._snackBar.open(message, 'Close', {
+          duration: 2000,
+          horizontalPosition: 'right',
+          verticalPosition: 'top',
+        });
+      });
     } else {
       this.AlertType.message = "Fields need to be checked";
       this.openSnackBar(this.AlertType.message, "Close");

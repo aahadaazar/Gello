@@ -24,6 +24,7 @@ import { LoginComponent } from './features/authentication/login/login.component'
 import { HomepageComponent } from './features/components/homepage/homepage.component';
 import { AddblogComponent } from './features/components/addblog/addblog.component';
 import { EditblogComponent } from './features/components/editblog/editblog.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 const appRoutes: Routes = [
@@ -38,6 +39,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     MatButtonModule,
