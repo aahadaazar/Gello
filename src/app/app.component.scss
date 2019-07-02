@@ -3,33 +3,37 @@ $blue-button-color: #3460d6;
 $toolbar-color: #a37ac7;
 
 .main-toolbar {
+  display: flex;
+  justify-content: space-between;
+  background-color: $toolbar-color;
+  color: white;
+
+  .button-sec {
     display: flex;
+    width: 150px;
     justify-content: space-between;
-    background-color: $toolbar-color;
     color: white;
 
-    .button-sec {
-        display: flex;
-        width: 150px;
-        justify-content: space-between;
-        color: white;
-
-        .login-button {
-            background-color: $green-button-color;
-        }
-
-        .signup-button {
-            background-color: $blue-button-color;
-        }
+    .login-button {
+      background-color: $green-button-color;
     }
+
+    .signup-button {
+      background-color: $blue-button-color;
+    }
+  }
+
+  .logout-sec {
+    justify-content: flex-end;
+  }
 }
 
-.mat-form-field-ripple .mat-form-field .mat-form-focused{
-    background: $toolbar-color !important;
-    padding: 10px;
+.mat-form-field-ripple .mat-form-field .mat-form-focused {
+  background: $toolbar-color !important;
+  padding: 10px;
 }
 
-.mat-form-field.mat-focused .mat-form-field-ripple{
-    background: $toolbar-color !important;
-    padding: 10px;
+.mat-form-field.mat-focused .mat-form-field-ripple {
+  background: $toolbar-color !important;
+  padding: 10px;
 }

@@ -8,6 +8,8 @@ import { ActivatedRoute } from "@angular/router";
 })
 export class ViewblogComponent implements OnInit {
   viewBlog: any;
+  buttonDisable = true;
+  commentText : any;
   constructor(private _Activatedroute: ActivatedRoute) { }
 
   ngOnInit() {
@@ -15,5 +17,20 @@ export class ViewblogComponent implements OnInit {
       console.log(params.params);
       this.viewBlog = params.params;
     });
+    console.log(this.viewBlog.comments);
+  }
+
+  handleCommentText(event) {
+    if (this.commentText === '') {
+      this.buttonDisable = true;
+    }
+    else {
+      this.buttonDisable = false;
+    }
+  }
+
+
+  addComment(){
+
   }
 }
