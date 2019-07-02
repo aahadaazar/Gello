@@ -1,6 +1,6 @@
 <mat-toolbar class="main-toolbar">
   <p>Gello!!!</p>
-  <div class="button-sec" *ngIf="router.url.includes('hello')">
+  <div class="button-sec" *ngIf="router.url.includes('hello') || router.url.includes('signup') || router.url.includes('login')">
     <button mat-button class="login-button" routerLink="/login">Login</button>
     <button mat-button class="signup-button" routerLink="/signup">
       Signup

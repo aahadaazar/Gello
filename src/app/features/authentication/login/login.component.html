@@ -1,29 +1,18 @@
-<div class="section group">
+<div class="section group animated fadeInLeft">
   <div class="col span_1_of_2">
     <mat-card class="login-card">
       <div class="login-div">
         <mat-form-field>
-          <input
-            matInput
-            type="text"
-            [(ngModel)]="formData.userName"
-            placeholder="Enter Your Username"
-          />
+          <input matInput type="text" [(ngModel)]="formData.userName" placeholder="Enter Your Username" />
         </mat-form-field>
         <mat-form-field>
-          <input
-            matInput
-            type="password"
-            [(ngModel)]="formData.userPassword"
-            placeholder="Enter Your Password"
-          />
+          <input matInput type="password" [(ngModel)]="formData.userPassword" placeholder="Enter Your Password" />
         </mat-form-field>
 
-        <button mat-raised-button (click)="loginUser()" class="submit-button">
-          <span *ngIf="!loading">
+        <button mat-raised-button [disabled]="loading" (click)="loginUser()" class="submit-button">
+          <span>
             Login!!
           </span>
-          <mat-spinner *ngIf="loading"></mat-spinner>
         </button>
       </div>
     </mat-card>
