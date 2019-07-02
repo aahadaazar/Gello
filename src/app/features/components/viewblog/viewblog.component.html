@@ -1,11 +1,10 @@
 <div class="main-container">
   <mat-card class="animated fadeIn">
     <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>{{viewBlog.owner}}</mat-card-title>
+      <mat-card-title>{{viewBlog.title}}</mat-card-title>
       <mat-card-subtitle>{{viewBlog.description}}</mat-card-subtitle>
     </mat-card-header>
-    <mat-card-content>
+    <mat-card-content style="margin: 0 16px">
       <p>
         {{viewBlog.html}}
       </p>
