@@ -9,7 +9,7 @@
   </div>
   <div class="button-sec logout-sec"
     *ngIf="!router.url.includes('hello') || !router.url.includes('signup') || !router.url.includes('login')">
-    <button mat-raised-button color="warn" class="logout-button">Logout</button>
+    <button mat-raised-button color="warn" (click)="logout()" class="logout-button">Logout</button>
   </div>
 </mat-toolbar>
 

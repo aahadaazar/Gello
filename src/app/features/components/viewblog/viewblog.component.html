@@ -1,5 +1,5 @@
 <div class="main-container">
-  <mat-card class="animated fadeIn">
+  <mat-card class="animated fadeIn" *ngIf="viewBlog">
     <mat-card-header>
       <mat-card-title>{{viewBlog.title}}</mat-card-title>
       <mat-card-subtitle>{{viewBlog.description}}</mat-card-subtitle>
@@ -11,13 +11,17 @@
     </mat-card-content>
     <mat-card-actions>
       <textarea (keyup)="handleCommentText($event)" [(ngModel)]="commentText" cols="5" rows="10"></textarea>
-      <button [disabled]="buttonDisable" mat-stroked-button>Comment</button>
+      <button [disabled]="buttonDisable" (click)="addComment()" mat-stroked-button>Comment</button>
 
       <div class="commentSection">
-        <div *ngFor="let comment of viewBlog.comments" class="comment">
-          <span>{{comment.name}}</span>
-          <p>{{comment.text}}</p>
-        </div>
+        <mat-list *ngFor="let comment of viewBlog.comments">
+          <mat-list-item>
+            <h4 mat-line>{{comment.text}}</h4>
+            <p mat-line> {{comment.createdAt | date: 'yyyy-MM-dd'}} </p>
+            <p mat-line> {{comment.user ? comment.user.firstname : ''}} </p>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+        </mat-list>
       </div>
     </mat-card-actions>
   </mat-card>

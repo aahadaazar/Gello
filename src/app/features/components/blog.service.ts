@@ -15,4 +15,16 @@ export class BlogService {
   getAllBlogs() {
     return this.httpService.get('/blogs');
   }
+
+  getBlog(id) {
+    return this.httpService.get(`/blogs/${id}`);
+  }
+
+  addComment(id, data) {
+    return this.httpService.post(`/blogs/${id}/comments`, data);
+  }
+
+  editBlog(id, data) {
+    return this.httpService.put(`/blogs/${id}`, data);
+  }
 }

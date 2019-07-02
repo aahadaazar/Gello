@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { BlogService } from '../blog.service';
+import { HttpService } from 'src/app/services/http.service';
 
 @Component({
   selector: "ge-homepage",
@@ -10,7 +11,10 @@ export class HomepageComponent implements OnInit {
   blogArray = [];
 
   loading = false;
-  constructor(private blogService: BlogService) {}
+  user;
+  constructor(private blogService: BlogService, private httpSerive: HttpService) {
+    this.user = this.httpSerive.getUser();
+  }
 
   ngOnInit() {
     console.log(this.blogArray);

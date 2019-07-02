@@ -11,7 +11,8 @@ import {
   MatCardModule,
   MatSnackBarModule,
   MatProgressSpinnerModule,
-  MatInputModule
+  MatInputModule,
+  MatListModule
 } from "@angular/material";
 import { RouterModule, Routes } from "@angular/router";
 import { WelcomeComponent } from "./features/welcome/welcome.component";
@@ -23,16 +24,17 @@ import { AddblogComponent } from './features/components/addblog/addblog.componen
 import { EditblogComponent } from './features/components/editblog/editblog.component';
 import { ViewblogComponent } from './features/components/viewblog/viewblog.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthGuardService } from './services/auth-guard.service';
 
 
 const appRoutes: Routes = [
   { path: "hello", component: WelcomeComponent },
   { path: "signup", component: SignupComponent },
   { path: "login", component: LoginComponent },
-  { path: "home", component: HomepageComponent },
-  { path: "add", component: AddblogComponent },
-  { path: "edit", component: EditblogComponent },
-  { path: "view", component: ViewblogComponent },
+  { path: "home", component: HomepageComponent, canActivate: [AuthGuardService] },
+  { path: "add", component: AddblogComponent, canActivate: [AuthGuardService]  },
+  { path: "edit/:id", component: EditblogComponent, canActivate: [AuthGuardService]  },
+  { path: "view/:id", component: ViewblogComponent, canActivate: [AuthGuardService]  },
   { path: "", redirectTo: "/hello", pathMatch: "full" }
 ];
 
@@ -49,6 +51,7 @@ const appRoutes: Routes = [
     MatInputModule,
     MatSnackBarModule,
     MatCardModule,
+    MatListModule,
     MatProgressSpinnerModule,
     FormsModule,
     RouterModule.forRoot(appRoutes)

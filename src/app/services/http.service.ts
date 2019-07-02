@@ -136,4 +136,9 @@ export class HttpService {
     localStorage.setItem('user', JSON.stringify(user));
     localStorage.setItem('token', token);
   }
+
+  deleteUser() {
+    localStorage.removeItem('user');
+    localStorage.removeItem('token');
+  }
 }
