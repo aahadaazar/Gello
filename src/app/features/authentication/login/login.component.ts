@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
-import { MatSnackBar, MatInput } from "@angular/material";
 import { Router } from '@angular/router';
 import { LoginService } from './login.service';
 import { HttpService } from '../../../services/http.service';
+import { MatSnackBar } from "@angular/material";
 
 @Component({
   selector: "ge-login",
@@ -56,7 +56,7 @@ export class LoginComponent implements OnInit {
           horizontalPosition: 'right',
           verticalPosition: 'top',
         });
-        this.router.navigate(['/hello']);
+        this.router.navigate(['/home']);
       }, err => {
         // console.log(err);
         this.loading = false;

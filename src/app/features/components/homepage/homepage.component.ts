@@ -8,23 +8,37 @@ import { Component, OnInit } from "@angular/core";
 export class HomepageComponent implements OnInit {
   blogArray = [
     {
-      owner : "Aahad Aazar",
+      owner: "Aahad Aazar",
       name: "My First Blog",
+      liked: false,
       description: "This is short description for a blog",
       html:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
     },
     {
-      owner : "Aazar Farooq",
+      owner: "Aazar Farooq",
       name: "My First Blog",
+      liked: true,
       description: "This is short description for a blog",
       html:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
     }
   ];
+
+  loading = false;
   constructor() {}
 
   ngOnInit() {
     console.log(this.blogArray);
+  }
+
+  toggleLike(event, i) {
+    event.stopPropagation();
+    event.preventDefault();
+    this.loading = true;
+    setTimeout(() => {
+      this.loading = false;
+      this.blogArray[i].liked = !this.blogArray[i].liked;
+    }, 2000);
   }
 }

@@ -1,5 +1,6 @@
 import { Component, ViewChild } from "@angular/core";
 import { MatMenuTrigger } from "@angular/material";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "ge-root",
@@ -8,9 +9,10 @@ import { MatMenuTrigger } from "@angular/material";
 })
 export class AppComponent {
   title = "Gello";
-  @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
 
-  someMethod() {
-    this.trigger.openMenu();
+  constructor(private router: Router) {
+  }
+
+  ngOnInit() {
   }
 }

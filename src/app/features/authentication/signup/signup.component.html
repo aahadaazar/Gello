@@ -1,16 +1,47 @@
-<div class="section group">
+<div class="section group animated fadeInRight">
   <div class="col span_1_of_2">
     <mat-card class="signup-card">
-
       <div class="signup-div">
-        <input type="text" [(ngModel)]="formData.username" placeholder="Enter your email" />
-        <input type="password" [(ngModel)]="formData.password" placeholder="Enter your password" />
-        <input type="password" [(ngModel)]="formData.confirmPassword" placeholder="Enter your password again" />
-        <input type="text" [(ngModel)]="formData.firstname" placeholder="Enter your firstname" />
-        <button mat-raised-button (click)="registerUser()" class="submit-button" [style.padding]="loading ? '10px': '0'">
-          <span *ngIf="!loading">
-            Register!!
-          </span>
+        <mat-form-field>
+          <input
+            matInput
+            type="text"
+            [(ngModel)]="formData.userEmail"
+            placeholder="Enter Your Email"
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            type="password"
+            [(ngModel)]="formData.password"
+            placeholder="Enter Your Password"
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            type="password"
+            [(ngModel)]="formData.confirmPassword"
+            placeholder="Enter Your Password Again"
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            type="text"
+            [(ngModel)]="formData.username"
+            placeholder="Enter Your Username"
+          />
+        </mat-form-field>
+        <button
+          mat-raised-button
+          (click)="registerUser()"
+          class="submit-button"
+        >
+        <span *ngIf="!loading" [style.padding]="loading ? '10px': '0'">
+          Register!!
+        </span>
           <mat-spinner color="accent" diameter="20" *ngIf="loading"></mat-spinner>
         </button>
       </div>

@@ -1,0 +1,28 @@
+.main-container {
+    padding: 30px 140px;
+
+    .mat-card {
+        padding: 25px 15px;
+    }
+
+    .mat-card-header {
+        margin-bottom: 10px;
+    }
+
+    .mat-card-content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .mat-stroked-button {
+        width: 140px;
+        height: 40px;
+    }
+}
+
+
+@media only screen and (max-width: 1000px) {
+    .main-container {
+        padding: 30px 70px;
+    }
+}
