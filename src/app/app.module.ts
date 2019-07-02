@@ -21,6 +21,7 @@ import { LoginComponent } from './features/authentication/login/login.component'
 import { HomepageComponent } from './features/components/homepage/homepage.component';
 import { AddblogComponent } from './features/components/addblog/addblog.component';
 import { EditblogComponent } from './features/components/editblog/editblog.component';
+import { ViewblogComponent } from './features/components/viewblog/viewblog.component';
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -31,11 +32,12 @@ const appRoutes: Routes = [
   { path: "home", component: HomepageComponent },
   { path: "add", component: AddblogComponent },
   { path: "edit", component: EditblogComponent },
+  { path: "view", component: ViewblogComponent },
   { path: "", redirectTo: "/hello", pathMatch: "full" }
 ];
 
 @NgModule({
-  declarations: [AppComponent, WelcomeComponent, SignupComponent, LoginComponent, HomepageComponent, AddblogComponent, EditblogComponent],
+  declarations: [AppComponent, WelcomeComponent, SignupComponent, LoginComponent, HomepageComponent, AddblogComponent, EditblogComponent, ViewblogComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

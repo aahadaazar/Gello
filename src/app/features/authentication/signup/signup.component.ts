@@ -36,6 +36,7 @@ export class SignupComponent implements OnInit {
 
   registerUser() {
     this.formValidation = true;
+    console.log(this.formData);
     if (
       this.formData.username === "" ||
       this.formData.password === "" ||

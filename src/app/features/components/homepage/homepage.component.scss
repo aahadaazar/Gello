@@ -6,18 +6,6 @@
     margin-bottom: 10px;
   }
 
-  .overlayContainer {
-    position: absolute;
-    background: #00000066;
-    width: 100%;
-    height: 100%;
-    border-radius: 5px;
-    z-index: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
   .floatingicon {
     position: fixed;
     outline: none;
@@ -38,21 +26,5 @@
   .heart {
     width: 20px;
     height: 20px;
-  }
-
-  .mat-card-actions {
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .mat-spinner {
-    width: 50px !important;
-    height: 50px !important;
-
-    .mat-progress-spinner svg {
-      width: 50px !important;
-      height: 50px !important;
-    }
   }
 }

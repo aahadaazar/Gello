@@ -1,0 +1,16 @@
+<div class="main-container">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>{{viewBlog.title}}</mat-card-title>
+      <mat-card-subtitle>{{viewBlog.description}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content style="margin: 0 16px">
+      <p>
+        {{viewBlog.html}}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <textarea cols="5" rows="10"></textarea>
+      <button mat-stroked-button>Comment</button>
+    </mat-card-actions>
+  </mat-card>
