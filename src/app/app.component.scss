@@ -23,3 +23,13 @@ $toolbar-color: #a37ac7;
         }
     }
 }
+
+.mat-form-field-ripple .mat-form-field .mat-form-focused{
+    background: $toolbar-color !important;
+    padding: 10px;
+}
+
+.mat-form-field.mat-focused .mat-form-field-ripple{
+    background: $toolbar-color !important;
+    padding: 10px;
+}

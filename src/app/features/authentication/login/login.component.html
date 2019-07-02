@@ -2,16 +2,23 @@
   <div class="col span_1_of_2">
     <mat-card class="login-card">
       <div class="login-div">
-        <input
-          type="text"
-          [(ngModel)]="formData.userName"
-          placeholder="Enter Your Username"
-        />
-        <input
-          type="password"
-          [(ngModel)]="formData.userPassword"
-          placeholder="Enter Your Password"
-        />
+        <mat-form-field>
+          <input
+            matInput
+            type="text"
+            [(ngModel)]="formData.userName"
+            placeholder="Enter Your Username"
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            type="password"
+            [(ngModel)]="formData.userPassword"
+            placeholder="Enter Your Password"
+          />
+        </mat-form-field>
+
         <button mat-raised-button (click)="loginUser()" class="submit-button">
           <span *ngIf="!loading">
             Login!!

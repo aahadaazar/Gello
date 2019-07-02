@@ -27,6 +27,9 @@ const appRoutes: Routes = [
   { path: "hello", component: WelcomeComponent },
   { path: "signup", component: SignupComponent },
   { path: "login", component: LoginComponent },
+  { path: "home", component: HomepageComponent },
+  { path: "add", component: AddblogComponent },
+  { path: "edit", component: EditblogComponent },
   { path: "", redirectTo: "/hello", pathMatch: "full" }
 ];
 

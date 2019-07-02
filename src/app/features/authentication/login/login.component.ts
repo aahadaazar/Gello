@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { MatSnackBar, MatInput } from "@angular/material";
+import { MatSnackBar } from "@angular/material";
 
 @Component({
   selector: "ge-login",
